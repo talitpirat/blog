@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Blog</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <%= heading %>
+    </h1>
+
+    <% if (locals.updateId) { %>
+      <form id="editForm" method="POST" action="/edit/post/<%=locals.updateId.id%>">
+        <input type="text" name="title" value="<%=locals.updateId.title %>">
+        <textarea name="content" rows="10"><%=locals.updateId.content %></textarea>
+        <input type="text" name="author" value="<%=locals.updateId.author %>">
+        <button class="full-width" type="submit">
+          <%= submit %>
+        </button>
+      </form>
+      <% } %>
+
+  </div>
+</body>
+
+</html>
